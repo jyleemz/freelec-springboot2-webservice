@@ -74,7 +74,7 @@ public class PostsApiControllerTest {
                         .build());
 
         Long updateId = savedPosts.getId();
-        String expectedTitle = "title";
+        String expectedTitle = "title"; // ljy 여기를 title2로 하면 안된다.
         String expectedContent = "content";
 
         PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder()
