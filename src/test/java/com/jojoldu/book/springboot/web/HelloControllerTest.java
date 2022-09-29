@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.hamcrest.Matchers.is;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
@@ -28,6 +29,7 @@ public class HelloControllerTest {
         mvc.perform(builder)
                 .andExpect(status().isOk())
                 .andExpect(content().string(hello));
+
     }
 
     @Test
@@ -35,7 +37,7 @@ public class HelloControllerTest {
         String name = "hello";
         int amount = 1000;
 
-        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/hello/dto")
+        MockHttpServletRequestBuilder builder = get("/hello/dto")
                 .param("name", name)
                 .param("amount", String.valueOf(amount));
 
